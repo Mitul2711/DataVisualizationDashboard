@@ -1,0 +1,44 @@
+:host {
+    display: block;
+    width: 250px;
+    height: 100%;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+h2 {
+    width: 200px;
+    margin: 0.5rem auto 1rem;
+    text-align: center;
+}
+
+ul {
+    li {
+        padding: 0.5rem 0.5rem 0.5rem 0;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        display: flex;
+        gap: 8px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: var(--light-black);
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .data {
+            flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+    }
+}

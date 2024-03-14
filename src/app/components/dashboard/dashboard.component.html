@@ -1,0 +1,156 @@
+<div>
+    <mat-card class="example">
+        <mat-card-content class="three-d-card">
+
+            <div class="title">
+                <h3><strong>Inbox Activity Summary</strong></h3>
+                <p style="margin-bottom: 8px;">
+                    View Key Performance metrics for received message and inbox action during the reporting period.
+                </p>
+            </div>
+            <hr style="border-color: rgb(243, 238, 238); margin-bottom: 25px;">
+
+            <div class="div-mrg">
+                <div class="fbox">
+                    <p>Total Received Message</p>
+                    <hr style="border-top: dotted 1px; width:175px; margin-bottom: 5px">
+                    <h2>586</h2>
+                </div>
+                <div style="margin-left: 23px;">
+                    <p>Total Actioned Message</p>
+                    <hr style="border-top: dotted 1px; width:175px; margin-bottom: 5px">
+                    <h2>586</h2>
+                    <small>525 including fully automated message</small>
+                </div>
+            </div>
+            <hr style="border-color: rgb(243, 238, 238); margin-bottom: 30px; margin-top:25px">
+
+            <div class="div-mrg div-btm">
+                <div class="fbox amount">
+                    <p>Action Rate</p>
+                    <hr style="border-top: dotted 1px; width:175px; margin-bottom: 5px">
+                    <h2>82%</h2>
+                    <small>88% including fully automated message</small>
+                </div>
+                <div style="margin-left: 23px;" class="amount">
+                    <p>Avarage Time To Action</p>
+                    <hr style="border-top: dotted 1px; width:175px; margin-bottom: 5px">
+                    <h2>58m</h2>
+                    <small>Time excludes fully automated message</small>
+                </div>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div class="chart-container">
+
+    <div>
+        <mat-card class="example-card">
+            <mat-card-content class="three-d-card">
+                <div class="chart">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div>
+        <mat-card class="doughnut-chart">
+            <mat-card-content class="male three-d-card">
+
+                <div style="margin-left: 35px;">
+                    <canvas id="canvas"></canvas>
+                </div>
+
+                <div style="margin: 50px 10px 0 40px;">
+                    <h3 style="margin-bottom: 20px">Percentage Amount Of Followers</h3>
+
+                    <div class="male">
+                        <img src="./assets/male.svg" height="50px" width="50px">
+                        <h3 style="margin: 20px 0 0 20px; color:rgb(123, 118, 118)">55%</h3>
+                    </div>
+
+                    <div class="male" style="margin-top: 25px;">
+                        <img src="./assets/female.svg" height="50px" width="50px">
+                        <h3 style="margin: 20px 0 0 20px; color:rgb(123, 118, 118)">55%</h3>
+                    </div>
+
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+
+
+</div>
+
+<div class="male" style="margin-top: 25px; width:100%">
+    <div class="" style="margin-right: 26px; width:87.5rem">
+        <mat-card class="example-card">
+            <mat-card-content class="three-d-card">
+
+                <h3 style="margin-bottom: 15px; margin-top:10px"><strong>InstaGram</strong></h3>
+                <div class="post-details">
+                    <div class="post">
+                        <h2 style="color:rgb(123, 118, 118)">126</h2>
+                        <p>post</p>
+                    </div>
+                    <div class="post" style="margin-left: 10px;">
+                        <h2 style="color:rgb(123, 118, 118)">126</h2>
+                        <p>Followers</p>
+                    </div>
+                    <div>
+                        <h2 style="color:rgb(123, 118, 118)">126</h2>
+                        <p>Following</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 10px;" class="facebook"><strong>FaceBook</strong></h3>
+                <div class="post-details">
+                    <div class="post">
+                        <h2 style="color:rgb(123, 118, 118)">126</h2>
+                        <p>post</p>
+                    </div>
+                    <div class="post" style="margin-left: 10px;">
+                        <h2 style="color:rgb(123, 118, 118)">126</h2>
+                        <p>Followers</p>
+                    </div>
+                    <div>
+                        <h2 style="color:rgb(123, 118, 118)">126</h2>
+                        <p>Following</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 10px;" class="facebook"><strong>Twitter</strong></h3>
+                <div class="post-details" style="margin-bottom: 20px;">
+                    <div class="post">
+                        <h2 style="color:rgb(123, 118, 118)">126</h2>
+                        <p>post</p>
+                    </div>
+                    <div class="post" style="margin-left: 10px;">
+                        <h2 style="color:rgb(123, 118, 118)">126</h2>
+                        <p>Followers</p>
+                    </div>
+                    <div>
+                        <h2 style="color:rgb(123, 118, 118)">126</h2>
+                        <p>Following</p>
+                    </div>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div style="width: 100%;">
+        <mat-card>
+            <mat-card-content class="three-d-card">
+                <div style="height: 20rem;">
+                    <canvas id="line-chart"></canvas>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
