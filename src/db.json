@@ -1,0 +1,19 @@
+{
+    "revenue": [
+        {
+            "name": "Product 1",
+            "amount": 152454,
+            "sales": 1200
+        },
+        {
+            "name": "Product 2",
+            "amount": 252454,
+            "sales": 1400
+        },
+        {
+            "name": "Product 3",
+            "amount": 352454,
+            "sales": 1500
+        }
+    ]
+}
