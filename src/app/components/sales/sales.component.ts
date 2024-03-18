@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { empty } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 
 
@@ -8,22 +9,58 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.scss']
 })
-export class SalesComponent implements OnInit {
+export class SalesComponent implements OnInit{
 
-  revenueData: any;
+  revenueShow: boolean = true;
+  customerShow: boolean = false;
+  transactionShow: boolean = false;
+  productShow: boolean = false;
+
+  revenueData: any[] = [];
   productName: any[] = [];
   amount: any[] = [];
   salesNumber: any[] = [];
   totalRevenue: number=0;
 
-  constructor(private dataService: DataService) { }
+  customerData: any[] = [];
+  mediaName: any[] = [];
+  customerCount: any[] = [];
+  totalCustomer: number = 0;
+
+  transactionData: any[] = [];
+  methodName: any[] = [];
+  transactionCount: any[] = [];
+  totalTransaction: number = 0;
+
+  productData: any[] = [];
+  prodName: any[] = [];
+  prodCount: any[] = [];
+  totalProduct: number = 0;
+
+  constructor(private dataService: DataService) {}
+
 
   ngOnInit(): void {
-    this.getData();
+   this.loadMethod();
     this.curvChart();
   }
 
-  getData() {
+  loadMethod() {
+    this.getRevenueData();
+    this.getCustomerData();
+    this.getTransactionData();
+    this.getProductData();
+  }
+
+
+  getRevenueData() {
+    this.productName = [];
+    this.amount = [];
+    this.totalRevenue = 0;   
+    this.revenueShow = true;
+    this.customerShow = false;
+    this.transactionShow = false;
+    this.productShow = false;
     this.dataService.revenueData().subscribe((res: any) => {
       this.revenueData = res;
       this.revenueData.forEach((e: any) => {
@@ -32,23 +69,111 @@ export class SalesComponent implements OnInit {
         this.salesNumber.push(e.sales);
       });
 
-      this.pieChart(this.productName, this.amount);
+      this.revenueChart(this.productName, this.amount);
       for(let i=0; i<this.amount.length; i++) {
-        debugger
         this.totalRevenue = this.totalRevenue + this.amount[i];
       }
-            
+    })   
+    
+  }
+
+  getCustomerData() {
+
+    this.mediaName = [];
+    this.customerCount = [];
+    this.totalCustomer = 0;
+    this.customerShow = true;
+    this.revenueShow = false;
+    this.transactionShow = false;
+    this.productShow = false;
+    this.dataService.customerData().subscribe((res: any) => {
+      this.customerData = res;
+      this.customerData.forEach((e: any) => {
+        this.mediaName.push(e.media);
+        this.customerCount.push(e.customer);
+      });
+
+      this.customerChart(this.mediaName, this.customerCount);
+      for(let i=0; i<this.customerCount.length; i++) {
+        this.totalCustomer = this.totalCustomer + this.customerCount[i];
+      }
+      console.log(this.totalCustomer); 
     })  
     
   }
 
-  pieChart(product: any, datas: any) {
-    new Chart('pie-chart', {
+  getTransactionData() {
+    this.methodName = [];
+    this.transactionCount = [];
+    this.totalTransaction = 0;
+    this.transactionShow = true;
+    this.customerShow = false;
+    this.revenueShow = false;
+    this.productShow = false;
+
+    this.dataService.transactionData().subscribe((res: any) => {
+      this.transactionData = res;
+      this.transactionData.forEach((e: any) => {
+        this.methodName.push(e.method);
+        this.transactionCount.push(e.paymentCount);
+      });
+
+      this.transactionChart(this.methodName, this.transactionCount);
+      for(let i=0; i<this.transactionCount.length; i++) {
+        this.totalTransaction = this.totalTransaction + this.transactionCount[i];
+      }
+    })   
+    
+  }
+
+  getProductData() {
+    this.prodCount= [];
+    this.prodName = [];
+    this.totalProduct = 0;
+    this.productShow = true;
+    this.revenueShow = false;
+    this.transactionShow = false;
+    this.customerShow = false;
+    this.dataService.productData().subscribe((res: any) => {
+      this.productData = res;
+      this.productData.forEach((e: any) => {
+        this.prodName.push(e.name);
+        this.prodCount.push(e.selling);
+      });
+
+      this.productChart(this.prodName, this.prodCount);
+      for(let i=0; i<this.prodCount.length; i++) {
+        this.totalProduct = this.totalProduct + this.prodCount[i];
+      }
+    })   
+    
+  }
+
+  revenueChart(product: any, datas: any) {
+    new Chart('revenue-chart', {
       type: 'pie',
       data: {
         labels: product,
         datasets: [{
           data: datas,
+          backgroundColor: [
+            'rgb(173, 216, 230)',
+            'rgb(144, 238, 144)',
+            'rgb(255, 213, 128)'
+          ],
+          hoverOffset: 5
+        }]
+      }
+    });
+  }
+
+  customerChart(media: any, data: any) {
+    new Chart('customer-chart', {
+      type: 'pie',
+      data: {
+        labels: media,
+        datasets: [{
+          data: data,
           backgroundColor: [
             'rgb(144, 238, 144)',
             'rgb(255, 213, 128)',
@@ -59,6 +184,45 @@ export class SalesComponent implements OnInit {
       }
     });
   }
+
+  transactionChart(method: any, data: any) {
+    new Chart('transaction-chart', {
+      type: 'pie',
+      data: {
+        labels: method,
+        datasets: [{
+          data: data,
+          backgroundColor: [
+            'rgb(144, 238, 144)',
+            'rgb(255, 213, 128)',
+            'rgb(173, 216, 230)',
+            'rgb(255, 128, 128)'
+
+          ],
+          hoverOffset: 4
+        }]
+      }
+    });
+  }
+
+  productChart(product: any, data: any) {
+    new Chart('product-chart', {
+      type: 'pie',
+      data: {
+        labels: product,
+        datasets: [{
+          data: data,
+          backgroundColor: [
+            'rgb(144, 238, 144)',
+            'rgb(255, 213, 128)',
+            'rgb(173, 216, 230)'
+          ],
+          hoverOffset: 4
+        }]
+      }
+    });
+  }
+
 
   curvChart() {
     new Chart("curv-chart", {

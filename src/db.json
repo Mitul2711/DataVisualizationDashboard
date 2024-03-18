@@ -15,5 +15,52 @@
             "amount": 352454,
             "sales": 1500
         }
+    ],
+
+    "customer": [
+        {
+            "media": "InstaGram",
+            "customer": 701502
+        },
+        {
+            "media": "FaceBook",
+            "customer": 501502
+        },
+        {
+            "media": "Twitter",
+            "customer": 401502
+        }
+    ],
+    "transaction": [
+        {
+            "method": "card",
+            "paymentCount": 523
+        },
+        {
+            "method": "UPI",
+            "paymentCount": 753
+        },
+        {
+            "method": "cash",
+            "paymentCount": 456
+        },
+        {
+            "method": "payPal",
+            "paymentCount": 223
+        }
+    ],
+    "product": [
+        {
+            "name": "Product 1",
+            "selling": 4590 
+        },
+        {
+            "name": "Product 2",
+            "selling": 8545 
+        },
+        {
+            "name": "Product 3",
+            "selling": 6974 
+        }
     ]
 }
