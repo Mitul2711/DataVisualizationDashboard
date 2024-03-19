@@ -14,8 +14,12 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { SalesComponent } from './components/sales/sales.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ProgressionComponent } from './components/progression/progression.component';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     HeaderComponent,
     SideNavComponent,
-    SalesComponent
+    SalesComponent,
+    ProgressionComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatCardModule,
     MatTableModule,
+    MatDialogModule,
+    MatInputModule,
     HttpClientModule
   ],
   providers: [],
