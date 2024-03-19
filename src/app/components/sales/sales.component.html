@@ -1,12 +1,12 @@
 <div class="row space">
 
-    <div style="margin-right: 90px; margin-left: 1.6rem" (click)="getRevenueData()" class="cursor">
+    <div style="margin-right: 68px; margin-left: 1.6rem" (click)="revenue()" class="cursor">
         <mat-card class="mat-width">
             <mat-card-content class="three-d-card">
                 <h3 style="margin-bottom:35px"><strong>Total Revenue</strong></h3>
                 <div class="row">
                     <p style="font-size: 2rem; margin-top: 12px"> ₹{{totalRevenue}}</p>
-                    <div class="column" style="margin-top: 5px;margin-left: 10px">
+                    <div class="column" style="margin-top: 5px;margin-left: 20px">
                         <span style="font-weight: 400;color: green">↑ 4.5%</span>
                         <small>From Last Week</small>
                     </div>
@@ -15,7 +15,7 @@
         </mat-card>
     </div>
 
-    <div style="margin-right: 90px;" (click)="getCustomerData()" class="cursor">
+    <div style="margin-right: 68px;" (click)="customer()" class="cursor">
         <mat-card class="mat-width">
             <mat-card-content class="three-d-card">
                 <h3 style="margin-bottom:35px"><strong>Total Customer</strong></h3>
@@ -30,7 +30,7 @@
         </mat-card>
     </div>
 
-    <div style="margin-right: 90px;" (click)="getTransactionData()" class="cursor">
+    <div style="margin-right: 68px;" (click)="transaction()" class="cursor">
         <mat-card class="mat-width">
             <mat-card-content class="three-d-card">
                 <h3 style="margin-bottom:35px"><strong>Total Transation</strong></h3>
@@ -45,13 +45,13 @@
         </mat-card>
     </div>
 
-    <div (click)="getProductData()" class="cursor">
+    <div (click)="product()" class="cursor">
         <mat-card class="mat-width">
             <mat-card-content class="three-d-card">
                 <h3 style="margin-bottom:35px"><strong>Total Product</strong></h3>
                 <div class="row">
                     <p style="font-size: 2rem;margin-top: 12px">{{totalProduct}}</p>
-                    <div class="column" style="margin-top: 5px;margin-left: 98px">
+                    <div class="column" style="margin-top: 5px;margin-left: 85px">
                         <span style="font-weight: 400;color: green">↑ 4.5%</span>
                         <small>From Last Week</small>
                     </div>

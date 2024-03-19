@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { empty } from 'rxjs';
+import { Subscription } from 'rxjs'
 import { DataService } from 'src/app/services/data.service';
 
 
@@ -9,7 +9,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.scss']
 })
-export class SalesComponent implements OnInit{
+export class SalesComponent implements OnInit, OnDestroy {
 
   revenueShow: boolean = true;
   customerShow: boolean = false;
@@ -20,7 +20,7 @@ export class SalesComponent implements OnInit{
   productName: any[] = [];
   amount: any[] = [];
   salesNumber: any[] = [];
-  totalRevenue: number=0;
+  totalRevenue: number = 0;
 
   customerData: any[] = [];
   mediaName: any[] = [];
@@ -36,121 +36,142 @@ export class SalesComponent implements OnInit{
   prodName: any[] = [];
   prodCount: any[] = [];
   totalProduct: number = 0;
+  
 
-  constructor(private dataService: DataService) {}
+  private subscriptions: Subscription[] = [];
+
+  constructor(private dataService: DataService) { }
 
 
   ngOnInit(): void {
-   this.loadMethod();
+    this.getData();
     this.curvChart();
   }
 
-  loadMethod() {
-    this.getRevenueData();
-    this.getCustomerData();
-    this.getTransactionData();
-    this.getProductData();
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
 
-  getRevenueData() {
-    this.productName = [];
-    this.amount = [];
-    this.totalRevenue = 0;   
+  revenue() {
     this.revenueShow = true;
     this.customerShow = false;
     this.transactionShow = false;
     this.productShow = false;
-    this.dataService.revenueData().subscribe((res: any) => {
+    this.getData();
+  }
+
+  customer() {
+    this.customerShow = true;
+    this.revenueShow = false;
+    this.transactionShow = false;
+    this.productShow = false;
+    this.getData();
+  }
+
+  transaction() {
+    this.transactionShow = true;
+    this.customerShow = false;
+    this.revenueShow = false;
+    this.productShow = false;
+    this.getData();
+  }
+
+  product() {
+    this.productShow = true;
+    this.revenueShow = false;
+    this.transactionShow = false;
+    this.customerShow = false;
+    this.getData();
+  }
+
+  getData() {
+    // Clear arrays before fetching new data
+    this.productName = [];
+    this.amount = [];
+    this.salesNumber = [];
+    this.mediaName = [];
+    this.customerCount = [];
+    this.methodName = [];
+    this.transactionCount = [];
+    this.prodName = [];
+    this.prodCount = [];
+  
+    // Unsubscribe from previous subscriptions
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    this.subscriptions = [];
+  
+    // Fetch data and subscribe to each observable
+    const revenueSubscription = this.dataService.revenueData().subscribe((res: any) => {
       this.revenueData = res;
       this.revenueData.forEach((e: any) => {
         this.productName.push(e.name);
         this.amount.push(e.amount);
         this.salesNumber.push(e.sales);
       });
-
+  
       this.revenueChart(this.productName, this.amount);
-      for(let i=0; i<this.amount.length; i++) {
-        this.totalRevenue = this.totalRevenue + this.amount[i];
-      }
-    })   
-    
-  }
-
-  getCustomerData() {
-
-    this.mediaName = [];
-    this.customerCount = [];
-    this.totalCustomer = 0;
-    this.customerShow = true;
-    this.revenueShow = false;
-    this.transactionShow = false;
-    this.productShow = false;
-    this.dataService.customerData().subscribe((res: any) => {
+      this.totalRevenue = this.amount.reduce((acc, curr) => acc + curr, 0);
+    });
+  
+    const customerSubscription = this.dataService.customerData().subscribe((res: any) => {
       this.customerData = res;
       this.customerData.forEach((e: any) => {
         this.mediaName.push(e.media);
         this.customerCount.push(e.customer);
       });
-
+  
       this.customerChart(this.mediaName, this.customerCount);
-      for(let i=0; i<this.customerCount.length; i++) {
-        this.totalCustomer = this.totalCustomer + this.customerCount[i];
-      }
-      console.log(this.totalCustomer); 
-    })  
-    
-  }
-
-  getTransactionData() {
-    this.methodName = [];
-    this.transactionCount = [];
-    this.totalTransaction = 0;
-    this.transactionShow = true;
-    this.customerShow = false;
-    this.revenueShow = false;
-    this.productShow = false;
-
-    this.dataService.transactionData().subscribe((res: any) => {
+      this.totalCustomer = this.customerCount.reduce((acc, curr) => acc + curr, 0);
+    });
+  
+    const transactionSubscription = this.dataService.transactionData().subscribe((res: any) => {
       this.transactionData = res;
       this.transactionData.forEach((e: any) => {
         this.methodName.push(e.method);
         this.transactionCount.push(e.paymentCount);
       });
-
+  
       this.transactionChart(this.methodName, this.transactionCount);
-      for(let i=0; i<this.transactionCount.length; i++) {
-        this.totalTransaction = this.totalTransaction + this.transactionCount[i];
-      }
-    })   
-    
-  }
-
-  getProductData() {
-    this.prodCount= [];
-    this.prodName = [];
-    this.totalProduct = 0;
-    this.productShow = true;
-    this.revenueShow = false;
-    this.transactionShow = false;
-    this.customerShow = false;
-    this.dataService.productData().subscribe((res: any) => {
+      this.totalTransaction = this.transactionCount.reduce((acc, curr) => acc + curr, 0);
+    });
+  
+    const productSubscription = this.dataService.productData().subscribe((res: any) => {
       this.productData = res;
       this.productData.forEach((e: any) => {
         this.prodName.push(e.name);
         this.prodCount.push(e.selling);
       });
-
+  
       this.productChart(this.prodName, this.prodCount);
-      for(let i=0; i<this.prodCount.length; i++) {
-        this.totalProduct = this.totalProduct + this.prodCount[i];
-      }
-    })   
-    
+      this.totalProduct = this.prodCount.reduce((acc, curr) => acc + curr, 0);
+    });
+  
+    // Store subscriptions to manage them later
+    this.subscriptions.push(revenueSubscription, customerSubscription, transactionSubscription, productSubscription);
   }
+  
+
 
   revenueChart(product: any, datas: any) {
-    new Chart('revenue-chart', {
+    if (!product || !datas) {
+      console.error('Product data or labels are null.');
+      return;
+    }
+  
+    const canvas = document.getElementById('revenue-chart') as HTMLCanvasElement;
+    if (!canvas) {
+      console.error('Canvas element not found.');
+      return;
+    }
+  
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      console.error('Failed to acquire canvas context.');
+      return;
+    }
+  
+    new Chart(ctx, {
       type: 'pie',
       data: {
         labels: product,
@@ -166,9 +187,26 @@ export class SalesComponent implements OnInit{
       }
     });
   }
-
+  
   customerChart(media: any, data: any) {
-    new Chart('customer-chart', {
+    if (!media || !data) {
+      console.error('Media data or labels are null.');
+      return;
+    }
+  
+    const canvas = document.getElementById('customer-chart') as HTMLCanvasElement;
+    if (!canvas) {
+      console.error('Canvas element not found.');
+      return;
+    }
+  
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      console.error('Failed to acquire canvas context.');
+      return;
+    }
+  
+    new Chart(ctx, {
       type: 'pie',
       data: {
         labels: media,
@@ -184,29 +222,27 @@ export class SalesComponent implements OnInit{
       }
     });
   }
-
-  transactionChart(method: any, data: any) {
-    new Chart('transaction-chart', {
-      type: 'pie',
-      data: {
-        labels: method,
-        datasets: [{
-          data: data,
-          backgroundColor: [
-            'rgb(144, 238, 144)',
-            'rgb(255, 213, 128)',
-            'rgb(173, 216, 230)',
-            'rgb(255, 128, 128)'
-
-          ],
-          hoverOffset: 4
-        }]
-      }
-    });
-  }
+  
 
   productChart(product: any, data: any) {
-    new Chart('product-chart', {
+    if (!product || !data) {
+      console.error('Product data or labels are null.');
+      return;
+    }
+  
+    const canvas = document.getElementById('product-chart') as HTMLCanvasElement;
+    if (!canvas) {
+      console.error('Canvas element not found.');
+      return;
+    }
+  
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      console.error('Failed to acquire canvas context.');
+      return;
+    }
+  
+    new Chart(ctx, {
       type: 'pie',
       data: {
         labels: product,
@@ -222,6 +258,43 @@ export class SalesComponent implements OnInit{
       }
     });
   }
+  
+  transactionChart(method: any, data: any) {
+    if (!method || !data) {
+      console.error('Method data or labels are null.');
+      return;
+    }
+  
+    const canvas = document.getElementById('transaction-chart') as HTMLCanvasElement;
+    if (!canvas) {
+      console.error('Canvas element not found.');
+      return;
+    }
+  
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      console.error('Failed to acquire canvas context.');
+      return;
+    }
+  
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: method,
+        datasets: [{
+          data: data,
+          backgroundColor: [
+            'rgb(144, 238, 144)',
+            'rgb(255, 213, 128)',
+            'rgb(173, 216, 230)',
+            'rgb(255, 128, 128)'
+          ],
+          hoverOffset: 4
+        }]
+      }
+    });
+  }
+  
 
 
   curvChart() {
