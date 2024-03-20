@@ -235,11 +235,41 @@
         </mat-card>
     </div>
 
-    <div>
+    <div *ngIf="revenueShow">
         <mat-card class="mat3-width">
             <mat-card-content class="three-d-card">
                 <div>
-                    <canvas id="curv-chart" style="width: 40rem; height: 18.7rem"></canvas>
+                    <canvas id="curvRev-chart" style="width: 40rem; height: 18.7rem"></canvas>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div *ngIf="customerShow">
+        <mat-card class="mat3-width">
+            <mat-card-content class="three-d-card">
+                <div>
+                    <canvas id="curvCus-chart" style="width: 40rem; height: 18.7rem"></canvas>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div *ngIf="transactionShow">
+        <mat-card class="mat3-width">
+            <mat-card-content class="three-d-card">
+                <div>
+                    <canvas id="curvTran-chart" style="width: 40rem; height: 18.7rem"></canvas>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div *ngIf="productShow">
+        <mat-card class="mat3-width">
+            <mat-card-content class="three-d-card">
+                <div>
+                    <canvas id="curvProd-chart" style="width: 40rem; height: 18.7rem"></canvas>
                 </div>
             </mat-card-content>
         </mat-card>

@@ -20,6 +20,7 @@ import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { ProgressionComponent } from './components/progression/progression.component';
 import { FormComponent } from './components/form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FormComponent } from './components/form/form.component';
     MatTableModule,
     MatDialogModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

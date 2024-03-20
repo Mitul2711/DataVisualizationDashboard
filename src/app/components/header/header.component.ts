@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormComponent } from '../form/form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,10 @@ import { FormComponent } from '../form/form.component';
 })
 export class HeaderComponent {
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private route: Router) {}
 
   onForm() {
-    this.dialog.open(FormComponent)
+    this.route.navigate([''])
   }
 
 }
