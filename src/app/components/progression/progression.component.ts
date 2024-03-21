@@ -60,6 +60,11 @@ export class ProgressionComponent implements OnInit {
   data2: any[] = [];
   prev: any = 10;
   prev2: any = 8;
+  insta: any[] = [];
+
+  getData() {
+    
+  }
 
   getForData() {
     for (let i = 0; i < 180; i++) {
@@ -68,7 +73,6 @@ export class ProgressionComponent implements OnInit {
       this.prev2 += 5 - Math.random() * 10;
       this.data2.push({ x: i, y: this.prev2 });
     }
-
   }
 
 

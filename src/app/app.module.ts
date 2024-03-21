@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProgressionComponent } from './components/progression/progression.component';
 import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AbcComponent } from './components/abc/abc.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SideNavComponent,
     SalesComponent,
     ProgressionComponent,
-    FormComponent
+    FormComponent,
+    AbcComponent
   ],
   imports: [
     BrowserModule,

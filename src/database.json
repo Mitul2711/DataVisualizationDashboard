@@ -1,3 +1,20 @@
 {
-    "details": []
+  "details": [
+    {
+      "id": "adba",
+      "name": "mitul",
+      "email": "mitul@gmail.com",
+      "janFollow": "15841",
+      "fabFollow": "35841",
+      "marchFollow": "26841",
+      "aprilFollow": "41154",
+      "mayFollow": "61451",
+      "juneFollow": "56512",
+      "male": "65",
+      "female": "35",
+      "instaFollower": "26012,22365,36325,24672,53500",
+      "facebookFollower": "23002,35312,32352,48255,26252",
+      "twitterFollower": "49854,44845,56321,32012,28456"
+    }
+  ]
 }

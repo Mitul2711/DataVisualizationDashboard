@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js/auto';
 import { getRelativePosition } from 'chart.js/helpers';
+import { FormDetailsService } from 'src/app/services/form-details.service';
 
 Chart.register(...registerables)
 
@@ -12,15 +13,40 @@ Chart.register(...registerables)
 })
 export class DashboardComponent implements OnInit {
 
-  chart: any;
+  userDetails: any;
+  incCount: any[] = [];
+  perCount: any[] = [];
+  instaFollowers: any[] = [];
+  facebookFollowers: any[] = [];
+  twitterFollowers: any[] = [];
 
-  constructor() { }
-
+  constructor(private formService: FormDetailsService) { }
 
   ngOnInit(): void {
+    this.getData()
     this.renderChart();
-    this.doughnutChart();
-    this.lineChart();
+  }
+
+  getData() {
+    this.formService.getData().subscribe(res => {
+      this.userDetails = res;
+      this.userDetails.forEach((e: any) => {
+        this.incCount.push(e.janFollow);
+        this.incCount.push(e.fabFollow);
+        this.incCount.push(e.marchFollow);
+        this.incCount.push(e.aprilFollow);
+        this.incCount.push(e.mayFollow);
+        this.incCount.push(e.juneFollow);
+        this.perCount.push(e.male);
+        this.perCount.push(e.female);
+        this.instaFollowers.push(e.instaFollower.split(',').map((value: any) => parseFloat(value.trim())));
+        this.facebookFollowers.push(e.facebookFollower.split(',').map((value: any) => parseFloat(value.trim())));
+        this.twitterFollowers.push(e.twitterFollower.split(',').map((value: any) => parseFloat(value.trim())));
+      });
+      
+    this.doughnutChart(this.perCount);
+    this.lineChart(this.instaFollowers[0], this.facebookFollowers[0], this.twitterFollowers[0]);
+    })
   }
 
   renderChart() {
@@ -31,7 +57,7 @@ export class DashboardComponent implements OnInit {
         labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June'],
         datasets: [{
           label: 'total followers (🠙+)',
-          data: [120, 190, 310, 205, 522, 300],
+          data: this.incCount,
           borderWidth: 1,
           backgroundColor: [
             'rgba(255,99,132,0.2)',
@@ -61,14 +87,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  doughnutChart() {
-    this.chart = new Chart('canvas', {
+  doughnutChart(data: any) {
+    new Chart('canvas', {
       type: 'doughnut',
       data: {
         labels: ['male', 'female'],
         datasets: [
           {
-            data: [55, 45],
+            data: data,
             backgroundColor: ['rgba(255, 0, 0, 0.7)', 'rgba(255, 0, 0, 0.3)']
           },
         ]
@@ -76,30 +102,30 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  lineChart() {
+  lineChart(insta: any, facebook: any, twitter: any) {
     new Chart("line-chart", {
-			type : 'line',
-			data : {
-        labels : [ 2000, 2005, 2010, 2015, 2020 ],
-				datasets : [
-						{
-							data : [ 10000,15000,12000,14000,18000 ],
-							label : "InstaGram",
-							borderColor : "#e43202"
-						},
-						{
-							data : [15000,12000,17000,10000,14000],
-							label : "FaceBook",
-							borderColor : "#0000FF"
-						},
-            {
-              data : [12000,14000,10000,13000,16000],
-							label : "Twitter",
-							borderColor : "black"
-            }
-          ]
-			}
-		});
+      type: 'line',
+      data: {
+        labels: [2000, 2005, 2010, 2015, 2020],
+        datasets: [
+          {
+            data: insta,
+            label: "InstaGram",
+            borderColor: "#e43202"
+          },
+          {
+            data: facebook,
+            label: "FaceBook",
+            borderColor: "#0000FF"
+          },
+          {
+            data: twitter,
+            label: "Twitter",
+            borderColor: "black"
+          }
+        ]
+      }
+    });
   }
 
 }

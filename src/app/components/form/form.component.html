@@ -6,16 +6,16 @@
 
     <hr>
 
-    <form [formGroup]="detailsForm">
+    <form [formGroup]="detailsForm" (submit)="onSubmit()">
         <div class="row center" style="margin-top: 1rem;">
             <div style="margin-left: 1.2rem; margin-right:1rem">
                 <mat-form-field>
-                    <input type="text" matInput placeholder="Name">
+                    <input type="text" matInput placeholder="Name" formControlName="name">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
-                    <input type="email" matInput placeholder="Email">
+                    <input type="email" matInput placeholder="Email" formControlName="email">
                 </mat-form-field>
             </div>
         </div>
@@ -29,12 +29,12 @@
         <div class="row center" style="margin-top: 5px;">
             <div style="margin-left: 1.2rem; margin-right:1rem">
                 <mat-form-field>
-                    <input type="text" matInput placeholder="followers inc. in jan">
+                    <input type="text" matInput placeholder="followers inc. in jan" formControlName="janFollow">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="followers inc. in fab">
+                    <input type="text" matInput placeholder="followers inc. in fab" formControlName="fabFollow">
                 </mat-form-field>
             </div>
         </div>
@@ -42,12 +42,12 @@
         <div class="row center">
             <div style="margin-left: 1.2rem; margin-right:1rem">
                 <mat-form-field>
-                    <input type="text" matInput placeholder="followers inc. in march">
+                    <input type="text" matInput placeholder="followers inc. in march" formControlName="marchFollow">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="followers inc. in april">
+                    <input type="text" matInput placeholder="followers inc. in april" formControlName="aprilFollow">
                 </mat-form-field>
             </div>
         </div>
@@ -55,12 +55,12 @@
         <div class="row center">
             <div style="margin-left: 1.2rem; margin-right:1rem">
                 <mat-form-field>
-                    <input type="text" matInput placeholder="followers inc. in may">
+                    <input type="text" matInput placeholder="followers inc. in may" formControlName="mayFollow">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="followers inc. in june">
+                    <input type="text" matInput placeholder="followers inc. in june" formControlName="juneFollow">
                 </mat-form-field>
             </div>
         </div>
@@ -68,12 +68,12 @@
         <div class="row center">
             <div style="margin-left: 1.2rem; margin-right:1rem">
                 <mat-form-field>
-                    <input type="text" matInput placeholder="% of male followers">
+                    <input type="text" matInput placeholder="% of male followers" formControlName="male">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="% of female followers">
+                    <input type="text" matInput placeholder="% of female followers" formControlName="female">
                 </mat-form-field>
             </div>
         </div>
@@ -81,33 +81,25 @@
         <div class="row center">
             <div style="margin-left: 1.2rem; margin-right:1rem">
                 <mat-form-field>
-                    <input type="text" matInput placeholder="no of followers in 2000">
+                    <input type="text" matInput placeholder="followers in Insta." formControlName="instaFollower">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="no of followers in 2005">
+                    <input type="text" matInput placeholder="followers in FaceBook" formControlName="facebookFollower">
                 </mat-form-field>
             </div>
         </div>
 
-        <div class="row center">
-            <div style="margin-left: 1.2rem; margin-right:1rem">
-                <mat-form-field>
-                    <input type="text" matInput placeholder="no of followers in 2010">
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field>
-                    <input type="text" matInput placeholder="no of followers in 2015">
-                </mat-form-field>
-            </div>
-        </div>
 
         <div class="center">
             <mat-form-field>
-                <input type="text" matInput placeholder="no of followers in 2020">
+                <input type="text" matInput placeholder="followers in Twittwr" formControlName="twitterFollower">
             </mat-form-field>
+        </div>
+
+        <div class="center">
+            <button mat-raised-button color="primary">Submit</button>
         </div>
 
     </form>

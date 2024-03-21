@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormDetailsService } from 'src/app/services/form-details.service';
 
 @Component({
   selector: 'app-form',
@@ -10,7 +11,7 @@ export class FormComponent implements OnInit {
 
   detailsForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private formService: FormDetailsService) {
     this.detailsForm = this.fb.group({
       name: [''],
       email: [''],
@@ -22,17 +23,22 @@ export class FormComponent implements OnInit {
       juneFollow: [''],
       male: [''],
       female: [''],
-      followNo0: [''],
-      followNo5: [''],
-      followNo10: [''],
-      followNo15: [''],
-      follow20: [''],
-     
+      instaFollower: [''],
+      facebookFollower: [''],
+      twitterFollower: [''],
     })
   }
 
-  ngOnInit(): void {
+  formDetails: any;
 
+  ngOnInit(): void {
+    
+  }
+
+  onSubmit() {
+    this.formDetails = this.detailsForm.value;
+    this.formService.postData(this.formDetails).subscribe(() => {});  
+    this.detailsForm.reset();
   }
   
 
