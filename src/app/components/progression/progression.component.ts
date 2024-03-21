@@ -11,7 +11,7 @@ export class ProgressionComponent implements OnInit {
 
   animation: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.getForData()
@@ -129,8 +129,8 @@ export class ProgressionComponent implements OnInit {
         labels: ['followers', 'non-followers'],
         datasets: [
           {
-            data: [60,40],
-            backgroundColor: ['rgba(255, 0, 0, 0.7)', 'rgba(255, 0, 0, 0.3)']
+            data: [40,60],
+            backgroundColor: ['#3CC5C5', '#adebe9']
           },
         ]
       }
