@@ -53,6 +53,7 @@ export class ProgressionComponent implements OnInit {
     };
 
     this.chart();
+    this.doughnet();
 
   }
 
@@ -61,10 +62,6 @@ export class ProgressionComponent implements OnInit {
   prev: any = 10;
   prev2: any = 8;
   insta: any[] = [];
-
-  getData() {
-    
-  }
 
   getForData() {
     for (let i = 0; i < 180; i++) {
@@ -121,6 +118,21 @@ export class ProgressionComponent implements OnInit {
             }
           }
         }
+      }
+    });
+  }
+
+  doughnet() {
+    new Chart('doughnet', {
+      type: 'doughnut',
+      data: {
+        labels: ['followers', 'non-followers'],
+        datasets: [
+          {
+            data: [60,40],
+            backgroundColor: ['rgba(255, 0, 0, 0.7)', 'rgba(255, 0, 0, 0.3)']
+          },
+        ]
       }
     });
   }

@@ -1,7 +1,76 @@
 <div>
-    <mat-card class="mat2-width">
+    <mat-card class="example">
         <mat-card-content class="three-d-card">
-            <canvas id="progression"></canvas>
+
+            <div class="title">
+                <h3><strong>Performance Summary</strong></h3>
+                <p style="margin-bottom: 8px;">
+                    View Key Profile Performance metrics from the reporting period.
+                </p>
+            </div>
+            <hr style="border-color: rgb(243, 238, 238); margin-bottom: 25px;">
+
+            <div class="div-mrg">
+                <div class="fbox">
+                    <p>Impression</p>
+                    <hr style="border-top: dotted 1px; width:175px; margin-bottom: 2px">
+                    <div class="row" style="margin-top: 10px;">
+                        <h2>23,412</h2>
+                        <span style="font-weight: 400;color: green; margin: 10px 0 0 10px">↑ 4.5%</span>
+                    </div>
+                </div>
+                <div style="margin-left: 23px;" class="fbox">
+                    <p>Engagements</p>
+                    <hr style="border-top: dotted 1px; width:175px; margin-bottom: 2px">
+                    <div class="row" style="margin-top: 10px;">
+                        <h2>11,574</h2>
+                        <span style="font-weight: 400;color: red; margin: 10px 0 0 10px">↓ 4.5%</span>
+                    </div>
+                </div>
+                <div class="amount" style="margin-right: 15rem;margin-left:25px">
+                    <p>Post Link Clicks</p>
+                    <hr style="border-top: dotted 1px; width:175px; margin-bottom: 2px">
+                    <div class="row" style="margin-top: 10px;">
+                        <h2>117</h2>
+                        <span style="font-weight: 400;color: red; margin: 10px 0 0 10px">↓ 4.5%</span>
+                    </div>
+                </div>
+            </div>
+
+
         </mat-card-content>
     </mat-card>
+</div>
+
+<div class="row">
+    <div style="margin-top: 25px; margin-right: 25px">
+        <mat-card class="mat2-width">
+            <mat-card-content class="three-d-card">
+                <canvas id="progression"></canvas>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div style="margin-top: 25px;">
+        <mat-card class="mat-width">
+            <mat-card-content class="three-d-card">
+                <div class="row" style="margin: 10px 0 8px 0;">
+                    <div style="margin-left: 25px;">
+                        <canvas id="doughnet"></canvas>
+                    </div>
+
+                    <div style="margin: 70px 15px 0 40px;">
+                        <h2 style="margin-bottom: 20px">Percentage Amount Of Followers</h2>
+
+                        <div class="male">
+                            <h3 style="margin: 20px 0 0 40px; color:rgb(123, 118, 118)">Followers :  40%</h3>
+                        </div>
+
+                        <div class="male" style="margin-top: 25px;">
+                            <h3 style="margin: 20px 0 0 40px; color:rgb(123, 118, 118)">Non-Followers :  60%</h3>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

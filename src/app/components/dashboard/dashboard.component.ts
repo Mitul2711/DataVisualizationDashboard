@@ -24,7 +24,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData()
-    this.renderChart();
   }
 
   getData() {
@@ -43,9 +42,9 @@ export class DashboardComponent implements OnInit {
         this.facebookFollowers.push(e.facebookFollower.split(',').map((value: any) => parseFloat(value.trim())));
         this.twitterFollowers.push(e.twitterFollower.split(',').map((value: any) => parseFloat(value.trim())));
       });
-      
-    this.doughnutChart(this.perCount);
-    this.lineChart(this.instaFollowers[0], this.facebookFollowers[0], this.twitterFollowers[0]);
+      this.renderChart();
+      this.doughnutChart(this.perCount);
+      this.lineChart(this.instaFollowers[0], this.facebookFollowers[0], this.twitterFollowers[0]);
     })
   }
 
