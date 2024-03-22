@@ -20,6 +20,9 @@ export class AbcComponent implements OnInit {
   instaFollowers: any[] = [];
   facebookFollowers: any[] = [];
   twitterFollowers: any[] = [];
+  instaAvg: number = 0;
+  faceBookAvg: number = 0;
+  twitterAvg: number = 0;
 
   getData() {
     this.formService.getData().subscribe(res => {
@@ -35,7 +38,11 @@ export class AbcComponent implements OnInit {
         this.facebookFollowers.push(e.facebookFollower.split(',').map((value: any) => parseFloat(value.trim())));
         this.twitterFollowers.push(e.twitterFollower.split(',').map((value: any) => parseFloat(value.trim())));
       });
-      console.log(this.instaFollowers);
+      for(let i=0; i<this.instaFollowers.length; i++) {
+        this.instaAvg = (this.instaAvg + this.instaFollowers[0][i]) / 5;
+        this.faceBookAvg = (this.faceBookAvg + this.facebookFollowers[0][i]) / 5;
+        this.twitterAvg = (this.twitterAvg + this.twitterFollowers[0][i]) /5;
+      }      
       
       this.comboChart(this.incCount, this.instaFollowers[0], this.facebookFollowers[0], this.twitterFollowers[0]);
     }) 
@@ -48,27 +55,27 @@ export class AbcComponent implements OnInit {
         labels: ['jan', 'fab', 'march', 'april', 'may', 'june'],
         datasets: [
           {
-            label: 'Dataset 1',
+            label: 'Followers',
             data: incData,
             backgroundColor: 'rgba(255,99,132,0.2)',
             order: 1
           },
           {
-            label: 'Dataset 2',
+            label: 'InstaGram',
             data: data1,
             borderColor: 'red',
             type: 'line',
             order: 0
           },
           {
-            label: 'Dataset 2',
+            label: 'FaceBook',
             data: data2,
             borderColor: 'blue',
             type: 'line',
             order: 0
           },
           {
-            label: 'Dataset 2',
+            label: 'Twitter',
             data: data3,
             borderColor: 'black',
             type: 'line',

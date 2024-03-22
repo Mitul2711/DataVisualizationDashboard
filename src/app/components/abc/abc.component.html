@@ -1,7 +1,53 @@
-<div>
-    <mat-card class="mat2-width">
-        <mat-card-content class="three-d-card">
-            <canvas id="combo"></canvas>
-        </mat-card-content>
-    </mat-card>
+<div class="row">
+    <div style="margin-left: 15px;">
+        <mat-card class="mat2-width">
+            <mat-card-content class="three-d-card">
+                <canvas id="combo"></canvas>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div style="margin-left: 30px;">
+        <mat-card>
+            <mat-card-content class="three-d-card">
+                <div style="margin-left: 25px;">
+                    <h2 style="margin: 20px 30px 30px 10px;">Social Media Followers</h2>
+                    <div class="row" style="margin-bottom: 40px; margin-left:30px">
+                        <img src="./assets/instagram.png" height="40px" width="40px">
+                        <h3 style="margin: 7px 0 0 20px; color:gray"><strong>{{instaFollowers[0][4]}}</strong></h3>
+                    </div>
+                    <div class="row" style="margin-bottom: 40px; margin-left:30px">
+                        <img src="./assets/facebook.png" height="40px" width="40px">
+                        <h3 style="margin: 7px 0 0 20px; color:gray"><strong>{{facebookFollowers[0][4]}}</strong></h3>
+                    </div>
+                    <div class="row" style="margin-bottom: 30px; margin-left:30px">
+                        <img src="./assets/twitter.png" height="30px" width="30px" style="margin-left: 5px;">
+                        <h3 style="margin: 3px 0 0 23px; color:gray"><strong>{{twitterFollowers[0][4]}}</strong></h3>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div style="margin-left: 30px;">
+        <mat-card>
+            <mat-card-content class="three-d-card">
+                <div style="margin-left: 25px;">
+                    <h2 style="margin: 20px 30px 30px 10px;">Monthly Avg.(FollowList)</h2>
+                    <div class="row" style="margin-bottom: 40px; margin-left:30px">
+                        <img src="./assets/instagram.png" height="40px" width="40px">
+                        <h3 style="margin: 7px 0 0 20px; color:gray"><strong>{{instaAvg}}</strong></h3>
+                    </div>
+                    <div class="row" style="margin-bottom: 40px; margin-left:30px">
+                        <img src="./assets/facebook.png" height="40px" width="40px">
+                        <h3 style="margin: 7px 0 0 20px; color:gray"><strong>{{faceBookAvg}}</strong></h3>
+                    </div>
+                    <div class="row" style="margin-bottom: 30px; margin-left:30px">
+                        <img src="./assets/twitter.png" height="30px" width="30px" style="margin-left: 5px;">
+                        <h3 style="margin: 3px 0 0 23px; color:gray"><strong>{{twitterAvg}}</strong></h3>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
