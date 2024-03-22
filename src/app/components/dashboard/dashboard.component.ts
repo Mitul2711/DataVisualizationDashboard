@@ -77,6 +77,12 @@ export class DashboardComponent implements OnInit {
         }]
       },
       options: {
+        plugins: {
+          title: {
+            display: true,
+            text: "Increment Count In Followers(Monthly)"
+          }
+        },
         scales: {
           y: {
             beginAtZero: true
@@ -97,6 +103,14 @@ export class DashboardComponent implements OnInit {
             backgroundColor: ['rgba(255, 0, 0, 0.7)', 'rgba(255, 0, 0, 0.3)']
           },
         ]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Ratio Of Followers'
+              }
+          }
       }
     });
   }
@@ -123,6 +137,14 @@ export class DashboardComponent implements OnInit {
             borderColor: "black"
           }
         ]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Increment Count in followers(Yearly)'
+              }
+          }
       }
     });
   }

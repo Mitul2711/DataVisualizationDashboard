@@ -243,6 +243,14 @@ export class SalesComponent implements OnInit, OnDestroy {
           ],
           hoverOffset: 5
         }]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Data Analytics'
+              }
+          }
       }
     });
   }
@@ -278,6 +286,14 @@ export class SalesComponent implements OnInit, OnDestroy {
           ],
           hoverOffset: 4
         }]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Data Analytics'
+              }
+          }
       }
     });
   }
@@ -314,6 +330,14 @@ export class SalesComponent implements OnInit, OnDestroy {
           ],
           hoverOffset: 4
         }]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Data Analytics'
+              }
+          }
       }
     });
   }
@@ -350,6 +374,14 @@ export class SalesComponent implements OnInit, OnDestroy {
           ],
           hoverOffset: 4
         }]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Data Analytics'
+              }
+          }
       }
     });
   }
@@ -389,6 +421,14 @@ export class SalesComponent implements OnInit, OnDestroy {
             borderColor: "black"
           }
         ]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Customer Count Yearly'
+              }
+          }
       }
     });
 
@@ -429,6 +469,14 @@ export class SalesComponent implements OnInit, OnDestroy {
             borderColor: "black"
           }
         ]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Revenue Count Yearly'
+              }
+          }
       }
     });
 
@@ -472,6 +520,14 @@ export class SalesComponent implements OnInit, OnDestroy {
             borderColor: "yellow"
           }
         ]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Transaction Count Yearly'
+              }
+          }
       }
     });
 
@@ -512,6 +568,14 @@ export class SalesComponent implements OnInit, OnDestroy {
             borderColor: "black"
           }
         ]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Product Count Yearly'
+              }
+          }
       }
     });
 

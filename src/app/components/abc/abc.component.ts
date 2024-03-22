@@ -45,6 +45,7 @@ export class AbcComponent implements OnInit {
       }      
       
       this.comboChart(this.incCount, this.instaFollowers[0], this.facebookFollowers[0], this.twitterFollowers[0]);
+      this.lineChart(this.instaFollowers[0], this.facebookFollowers[0], this.twitterFollowers[0]);
     }) 
   }
 
@@ -91,11 +92,54 @@ export class AbcComponent implements OnInit {
           },
           title: {
             display: true,
-            text: 'Chart.js Combined Line/Bar Chart'
+            text: 'All Social Media Followers Data'
           }
         }
       },
     })
+  }
+
+  lineChart(insta: any, facebook: any, twitter: any) {
+    new Chart("line-chart", {
+      type: 'line',
+      data: {
+        labels: ['jan', 'fab', 'march', 'april', 'may'],
+        datasets: [
+          {
+            data: insta,
+            label: "InstaGram",
+            borderColor: "#e43202",
+            backgroundColor: 'rgba(255,99,132,0.2)',
+            fill: true,
+            tension: 0.5
+          },
+          {
+            data: facebook,
+            label: "FaceBook",
+            borderColor: "#0000FF",
+            backgroundColor: '#E5FFFF',
+            fill: true,
+            tension: 0.5
+          },
+          {
+            data: twitter,
+            label: "Twitter",
+            borderColor: "black",
+            backgroundColor: ' #D3D3D3',
+            fill: true,
+            tension: 0.5
+          }
+        ]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Monthly Followers inc. Data'
+              }
+          }
+      }
+    });
   }
 
 }

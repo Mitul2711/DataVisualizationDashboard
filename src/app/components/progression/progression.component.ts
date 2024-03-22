@@ -133,6 +133,14 @@ export class ProgressionComponent implements OnInit {
             backgroundColor: ['#3CC5C5', '#adebe9']
           },
         ]
+      },
+      options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'Ratio Of Viewers'
+              }
+          }
       }
     });
   }
