@@ -135,12 +135,12 @@ export class ProgressionComponent implements OnInit {
         ]
       },
       options: {
-          plugins: {
-              title: {
-                  display: true,
-                  text: 'Ratio Of Viewers'
-              }
+        plugins: {
+          title: {
+            display: true,
+            text: 'Ratio Of Viewers'
           }
+        }
       }
     });
   }

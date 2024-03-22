@@ -92,7 +92,7 @@ export class AbcComponent implements OnInit {
           },
           title: {
             display: true,
-            text: 'All Social Media Followers Data'
+            text: 'All Social Media Followers'
           }
         }
       },
@@ -117,7 +117,7 @@ export class AbcComponent implements OnInit {
             data: facebook,
             label: "FaceBook",
             borderColor: "#0000FF",
-            backgroundColor: '#E5FFFF',
+            backgroundColor: 'rgb(173,216,230,0.2)',
             fill: true,
             tension: 0.5
           },
@@ -125,7 +125,7 @@ export class AbcComponent implements OnInit {
             data: twitter,
             label: "Twitter",
             borderColor: "black",
-            backgroundColor: ' #D3D3D3',
+            backgroundColor: 'rgb(128,128,128,0.2)',
             fill: true,
             tension: 0.5
           }
