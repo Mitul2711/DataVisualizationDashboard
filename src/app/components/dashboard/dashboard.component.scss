@@ -3,6 +3,11 @@
     height: 300px;
 }
 
+.chart1 {
+    width: 657px;
+    height: 300px;
+}
+
 .example-card {
     max-width: 100%;
 }
@@ -49,6 +54,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 25px;
 }
 
 .chart-container {
@@ -75,3 +81,112 @@
     display: flex;
     flex-direction: row;
 }
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.lastW {
+    width: 100%;
+}
+
+.sw {
+    margin-left: 23px;
+}
+
+@media screen and (max-width: 1400px) {
+
+ 
+    .chart-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .example-card {
+        width: 42rem;
+        margin-bottom: 20px;
+    }
+
+    .doughnut-chart {
+        width: 42rem;
+    }
+
+    .lastW {
+        margin-right: 10px;
+    }
+
+    .dcard {
+        width: 39rem;
+    }
+
+    .chart {
+        width: 36rem;
+    }
+
+    .male {
+        margin-top: 10px;
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .div-mrg {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chart-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .example-card {
+        width: 55rem;
+        margin-bottom: 25px;
+    }
+
+    .doughnut-chart {
+        margin-left: 4px;
+        width: 55rem;
+    }
+
+    .male {
+        display: flex;
+        flex-direction: column;
+        margin-left: 7px;
+    }    
+
+   .fcontent {
+    width: 55rem;
+   }
+
+   .lastW {
+    width: 55rem;
+   }
+
+   .sw {
+    margin-left: 5px;
+   }
+
+   .chart {
+    margin-left: 7rem;
+   }
+
+   .chart1 {
+    width: 100%;
+    margin-left: 5rem;
+    margin-bottom: 10px;
+   }
+
+   .dcard {
+    margin-top: 10px;
+   }
+
+
+}
+
+
+

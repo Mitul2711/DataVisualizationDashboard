@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormComponent } from '../form/form.component';
 import { Router } from '@angular/router';
@@ -10,10 +10,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
+  btn: boolean = false;
+
   constructor(private route: Router) {}
+
 
   onForm() {
     this.route.navigate([''])
+  }
+
+  burgerButton() {
+    this.btn = !this.btn;
   }
 
 }
