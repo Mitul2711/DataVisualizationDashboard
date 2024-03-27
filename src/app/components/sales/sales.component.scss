@@ -1,40 +1,104 @@
 .row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .mat-width {
-    max-width: 20rem;
+  max-width: 20rem;
 }
 
 .three-d-card {
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .mat2-width {
-    width: 40rem;
+  width: 40rem;
 }
 
 .mat3-width {
-    max-width: 50rem;
+  max-width: 50rem;
 }
 
 .chart {
-    height: 15rem;
-    width: 40rem;
+  height: 15rem;
+  width: 40rem;
 }
 
 table {
-    width: 100%;
-}  
+  width: 100%;
+}
 
 .cursor {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.col {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1400px) {
+
+  .mat-width {
+    max-width: 20rem;
+  }
+
+  .mat2-width {
+    width: 40rem;
+  }
+
+  .mat3-width {
+    max-width: 50rem;
+  }
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5rem;
+  }
+
+  .cursor {
+    margin-bottom: 20px;
+  }
+
+  .mat-width {
+    width: 28rem;
+  }
+
+  .c3 {
+    margin-left: 1.7rem;
+  }
+
+  .c1 {
+    margin-bottom: 2.5rem;
+  }
+
+  .mat2-width {
+    width: 49.4rem;
+  }
+
+  .chart {
+    margin-left: 6.5rem;
+  }
+
+  .details {
+    margin-left: 2rem;
+  }
+
+  .mat3-width {
+    width: 49.5rem;
+  }
+
 }

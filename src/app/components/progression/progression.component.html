@@ -10,7 +10,7 @@
             </div>
             <hr style="border-color: rgb(243, 238, 238); margin-bottom: 25px;">
 
-            <div class="div-mrg">
+            <div class="div-mrg" style="margin-left: 13px;">
                 <div class="fbox">
                     <p>Impression</p>
                     <hr style="border-top: dotted 1px; width:175px; margin-bottom: 2px">
@@ -19,7 +19,7 @@
                         <span style="font-weight: 400;color: green; margin: 10px 0 0 10px">↑ 4.5%</span>
                     </div>
                 </div>
-                <div style="margin-left: 23px;" class="fbox">
+                <div class="fbox">
                     <p>Engagements</p>
                     <hr style="border-top: dotted 1px; width:175px; margin-bottom: 2px">
                     <div class="row" style="margin-top: 10px;">
@@ -42,11 +42,13 @@
     </mat-card>
 </div>
 
-<div class="row">
+<div class="div-mrg">
     <div style="margin-top: 25px; margin-right: 25px">
         <mat-card class="mat2-width">
             <mat-card-content class="three-d-card">
-                <canvas id="progression"></canvas>
+                <div>
+                    <canvas id="progression"></canvas>
+                </div>
             </mat-card-content>
         </mat-card>
     </div>
@@ -54,11 +56,11 @@
         <mat-card class="mat-width">
             <mat-card-content class="three-d-card">
                 <div class="row" style="margin: 10px 0 8px 0;">
-                    <div style="margin-left: 25px;">
+                    <div class="chart" style="margin-left: 25px;">
                         <canvas id="doughnet"></canvas>
                     </div>
 
-                    <div style="margin: 70px 15px 0 40px;">
+                    <div class="details">
                         <h2 style="margin-bottom: 20px">Percentage Amount Of Viewers</h2>
 
                         <div class="male">

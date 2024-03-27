@@ -1,277 +1,283 @@
 <div class="row space">
 
-    <div style="margin-right: 68px; margin-left: 1.6rem" (click)="revenue()" class="cursor">
-        <mat-card class="mat-width">
-            <mat-card-content class="three-d-card">
-                <h3 style="margin-bottom:35px"><strong>Total Revenue</strong></h3>
-                <div class="row">
-                    <p style="font-size: 2rem; margin-top: 12px"> ₹{{totalRevenue}}</p>
-                    <div class="column" style="margin-top: 5px;margin-left: 20px">
-                        <span style="font-weight: 400;color: green">↑ 4.5%</span>
-                        <small>From Last Week</small>
+    <div class="col">
+        <div style="margin-right: 68px; margin-left: 1.6rem" (click)="revenue()" class="cursor">
+            <mat-card class="mat-width">
+                <mat-card-content class="three-d-card">
+                    <h3 style="margin-bottom:35px"><strong>Total Revenue</strong></h3>
+                    <div class="row">
+                        <p style="font-size: 2rem; margin-top: 12px"> ₹{{totalRevenue}}</p>
+                        <div class="column" style="margin-top: 5px;margin-left: 20px">
+                            <span style="font-weight: 400;color: green">↑ 4.5%</span>
+                            <small>From Last Week</small>
+                        </div>
                     </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div style="margin-right: 68px;" (click)="customer()" class="cursor c3">
+            <mat-card class="mat-width">
+                <mat-card-content class="three-d-card">
+                    <h3 style="margin-bottom:35px"><strong>Total Customer</strong></h3>
+                    <div class="row">
+                        <p style="font-size: 2rem;margin-top: 12px">{{[totalCustomer | json]}}</p>
+                        <div class="column" style="margin-top: 5px;margin-left: 35px">
+                            <span style="font-weight: 400;color: green">↑ 4.5%</span>
+                            <small>From Last Week</small>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </div>
 
-    <div style="margin-right: 68px;" (click)="customer()" class="cursor">
-        <mat-card class="mat-width">
-            <mat-card-content class="three-d-card">
-                <h3 style="margin-bottom:35px"><strong>Total Customer</strong></h3>
-                <div class="row">
-                    <p style="font-size: 2rem;margin-top: 12px">{{[totalCustomer | json]}}</p>
-                    <div class="column" style="margin-top: 5px;margin-left: 35px">
-                        <span style="font-weight: 400;color: green">↑ 4.5%</span>
-                        <small>From Last Week</small>
+    <div class="col">
+        <div style="margin-right: 68px;" (click)="transaction()" class="cursor">
+            <mat-card class="mat-width">
+                <mat-card-content class="three-d-card">
+                    <h3 style="margin-bottom:35px"><strong>Total Transation</strong></h3>
+                    <div class="row">
+                        <p style="font-size: 2rem;margin-top: 12px">{{totalTransaction}}</p>
+                        <div class="column" style="margin-top: 5px;margin-left: 95px">
+                            <span style="font-weight: 400;color: red">↓ 4.5%</span>
+                            <small>From Last Week</small>
+                        </div>
                     </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
 
-    <div style="margin-right: 68px;" (click)="transaction()" class="cursor">
-        <mat-card class="mat-width">
-            <mat-card-content class="three-d-card">
-                <h3 style="margin-bottom:35px"><strong>Total Transation</strong></h3>
-                <div class="row">
-                    <p style="font-size: 2rem;margin-top: 12px">{{totalTransaction}}</p>
-                    <div class="column" style="margin-top: 5px;margin-left: 95px">
-                        <span style="font-weight: 400;color: red">↓ 4.5%</span>
-                        <small>From Last Week</small>
+        <div (click)="product()" class="cursor">
+            <mat-card class="mat-width">
+                <mat-card-content class="three-d-card">
+                    <h3 style="margin-bottom:35px"><strong>Total Product</strong></h3>
+                    <div class="row">
+                        <p style="font-size: 2rem;margin-top: 12px">{{totalProduct}}</p>
+                        <div class="column" style="margin-top: 5px;margin-left: 85px">
+                            <span style="font-weight: 400;color: green">↑ 4.5%</span>
+                            <small>From Last Week</small>
+                        </div>
                     </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-
-    <div (click)="product()" class="cursor">
-        <mat-card class="mat-width">
-            <mat-card-content class="three-d-card">
-                <h3 style="margin-bottom:35px"><strong>Total Product</strong></h3>
-                <div class="row">
-                    <p style="font-size: 2rem;margin-top: 12px">{{totalProduct}}</p>
-                    <div class="column" style="margin-top: 5px;margin-left: 85px">
-                        <span style="font-weight: 400;color: green">↑ 4.5%</span>
-                        <small>From Last Week</small>
-                    </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </div>
 
 </div>
 
 <div style="margin-top: 20px; margin-left: 25px" class="row">
 
-    <div style="margin-right:30px" *ngIf="revenueShow">
-        <mat-card class="mat2-width">
-            <mat-card-content class="three-d-card">
+    <div class="col">
+        <div class="c1" style="margin-right:30px" *ngIf="revenueShow">
+            <mat-card class="mat2-width">
+                <mat-card-content class="three-d-card">
 
-                <div class="row" style="margin-left: 30px;">
+                    <div class="row" style="margin-left: 30px;">
 
-                    <div style="margin-right: 10px;">
+                        <div class="details" style="margin-right: 10px;">
 
-                        <div style="margin-left: 15px; margin-top: 25px">
-                            <h2>Product Sales Statics</h2>
-                        </div>
+                            <div style="margin-left: 15px; margin-top: 25px">
+                                <h2>Product Sales Statics</h2>
+                            </div>
 
-                        <div class="row">
+                            <div class="row">
+                                <div style="margin-left: 10px;">
+                                    <h3 style="margin-bottom: 1px;">➤ Product 1</h3>
+                                    <h1 style="margin-bottom: 1px; margin-left:18px">₹{{amount[0]}}</h1>
+                                    <h3 style="margin-left:18px">{{salesNumber[0]}} sales</h3>
+                                </div>
+                                <div style="margin-left: 30px;">
+                                    <h3 style="margin-bottom: 1px;">➤ Product 3</h3>
+                                    <h1 style="margin-bottom: 1px;margin-left:18px">₹{{amount[1]}}</h1>
+                                    <h3 style="margin-left:18px">{{salesNumber[1]}} sales</h3>
+                                </div>
+                            </div>
                             <div style="margin-left: 10px;">
-                                <h3 style="margin-bottom: 1px;">➤ Product 1</h3>
-                                <h1 style="margin-bottom: 1px; margin-left:18px">₹{{amount[0]}}</h1>
-                                <h3 style="margin-left:18px">{{salesNumber[0]}} sales</h3>
+                                <h3 style="margin-bottom: 1px;">➤ Product 2</h3>
+                                <h1 style="margin-bottom: 1px;margin-left:18px">₹{{amount[2]}}</h1>
+                                <h3 style="margin-left:18px">{{salesNumber[2]}} sales</h3>
                             </div>
-                            <div style="margin-left: 30px;">
-                                <h3 style="margin-bottom: 1px;">➤ Product 3</h3>
-                                <h1 style="margin-bottom: 1px;margin-left:18px">₹{{amount[1]}}</h1>
-                                <h3 style="margin-left:18px">{{salesNumber[1]}} sales</h3>
-                            </div>
+
                         </div>
-                        <div style="margin-left: 10px;">
-                            <h3 style="margin-bottom: 1px;">➤ Product 2</h3>
-                            <h1 style="margin-bottom: 1px;margin-left:18px">₹{{amount[2]}}</h1>
-                            <h3 style="margin-left:18px">{{salesNumber[2]}} sales</h3>
+
+
+                        <div class="chart" style="width: 300px; height: 300px">
+                            <canvas id="revenue-chart"></canvas>
                         </div>
 
                     </div>
 
+                </mat-card-content>
+            </mat-card>
+        </div>
 
-                    <div style="width: 300px; height: 300px">
-                        <canvas id="revenue-chart"></canvas>
-                    </div>
+        <div class="c1" style="margin-right:30px" *ngIf="customerShow">
+            <mat-card class="mat2-width">
+                <mat-card-content class="three-d-card">
 
-                </div>
+                    <div class="row" style="margin-left: 30px;">
 
-            </mat-card-content>
-        </mat-card>
-    </div>
+                        <div class="details" style="margin-right: 10px;">
 
-    <div style="margin-right:30px" *ngIf="customerShow">
-        <mat-card class="mat2-width">
-            <mat-card-content class="three-d-card">
+                            <div style="margin-left: 15px; margin-top: 25px">
+                                <h2>Product Sales Statics</h2>
+                            </div>
 
-                <div class="row" style="margin-left: 30px;">
-
-                    <div style="margin-right: 10px;">
-
-                        <div style="margin-left: 15px; margin-top: 25px">
-                            <h2>Product Sales Statics</h2>
-                        </div>
-
-                        <div class="row">
+                            <div class="row">
+                                <div style="margin-left: 10px;">
+                                    <h3 style="margin-bottom: 2px;">➤ InstaGram</h3>
+                                    <h1 style="margin-bottom: 20px; margin-left:18px">{{customerCount[0]}}</h1>
+                                </div>
+                                <div style="margin-left: 30px;">
+                                    <h3 style="margin-bottom: 2px;">➤ FaceBook </h3>
+                                    <h1 style="margin-bottom: 1px;margin-left:18px">{{customerCount[1]}}</h1>
+                                </div>
+                            </div>
                             <div style="margin-left: 10px;">
-                                <h3 style="margin-bottom: 2px;">➤ InstaGram</h3>
-                                <h1 style="margin-bottom: 20px; margin-left:18px">{{customerCount[0]}}</h1>
+                                <h3 style="margin-bottom: 2px;">➤ Twitter </h3>
+                                <h1 style="margin-bottom: 1px;margin-left:18px">{{customerCount[2]}}</h1>
                             </div>
-                            <div style="margin-left: 30px;">
-                                <h3 style="margin-bottom: 2px;">➤ FaceBook </h3>
-                                <h1 style="margin-bottom: 1px;margin-left:18px">{{customerCount[1]}}</h1>
-                            </div>
+
                         </div>
-                        <div style="margin-left: 10px;">
-                            <h3 style="margin-bottom: 2px;">➤ Twitter </h3>
-                            <h1 style="margin-bottom: 1px;margin-left:18px">{{customerCount[2]}}</h1>
+
+
+                        <div class="chart" style="width: 300px; height: 300px">
+                            <canvas id="customer-chart"></canvas>
                         </div>
 
                     </div>
 
+                </mat-card-content>
+            </mat-card>
+        </div>
 
-                    <div style="width: 300px; height: 300px">
-                        <canvas id="customer-chart"></canvas>
-                    </div>
+        <div class="c1" style="margin-right:30px" *ngIf="transactionShow">
+            <mat-card class="mat2-width">
+                <mat-card-content class="three-d-card">
 
-                </div>
+                    <div class="row" style="margin-left: 30px;">
 
-            </mat-card-content>
-        </mat-card>
-    </div>
+                        <div class="details" style="margin-right: 10px;">
 
-    <div style="margin-right:30px" *ngIf="transactionShow">
-        <mat-card class="mat2-width">
-            <mat-card-content class="three-d-card">
+                            <div style="margin-left: 15px; margin-top: 25px">
+                                <h2>Product Sales Statics</h2>
+                            </div>
 
-                <div class="row" style="margin-left: 30px;">
+                            <div class="row">
+                                <div style="margin-left: 10px;">
+                                    <h3 style="margin-bottom: 2px;">➤ {{methodName[0]}}</h3>
+                                    <h1 style="margin-bottom: 20px; margin-left:18px">{{transactionCount[0]}}</h1>
+                                </div>
+                                <div style="margin-left: 30px;">
+                                    <h3 style="margin-bottom: 2px;">➤ {{methodName[1]}} </h3>
+                                    <h1 style="margin-bottom: 1px;margin-left:18px">{{transactionCount[1]}}</h1>
+                                </div>
+                            </div>
 
-                    <div style="margin-right: 10px;">
+                            <div class="row">
+                                <div style="margin-left: 10px;">
+                                    <h3 style="margin-bottom: 2px;">➤ {{methodName[2]}} </h3>
+                                    <h1 style="margin-bottom: 1px;margin-left:18px">{{transactionCount[2]}}</h1>
+                                </div>
 
-                        <div style="margin-left: 15px; margin-top: 25px">
-                            <h2>Product Sales Statics</h2>
+                                <div style="margin-left: 30px;">
+                                    <h3 style="margin-bottom: 2px;">➤ {{methodName[3]}} </h3>
+                                    <h1 style="margin-bottom: 1px;margin-left:18px">{{transactionCount[3]}}</h1>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div class="row">
+
+                        <div class="chart" style="width: 300px; height: 300px">
+                            <canvas id="transaction-chart"></canvas>
+                        </div>
+
+                    </div>
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="c1" style="margin-right:30px" *ngIf="productShow">
+            <mat-card class="mat2-width">
+                <mat-card-content class="three-d-card">
+
+                    <div class="row" style="margin-left: 30px;">
+
+                        <div class="details" style="margin-right: 10px;">
+
+                            <div style="margin-left: 15px; margin-top: 25px">
+                                <h2>Product Sales Statics</h2>
+                            </div>
+
+                            <div class="row">
+                                <div style="margin-left: 10px;">
+                                    <h3 style="margin-bottom: 2px;">➤ {{prodName[0]}}</h3>
+                                    <h1 style="margin-bottom: 20px; margin-left:18px">{{prodCount[0]}}</h1>
+                                </div>
+                                <div style="margin-left: 30px;">
+                                    <h3 style="margin-bottom: 2px;">➤ {{prodName[1]}} </h3>
+                                    <h1 style="margin-bottom: 1px;margin-left:18px">{{prodCount[1]}}</h1>
+                                </div>
+                            </div>
                             <div style="margin-left: 10px;">
-                                <h3 style="margin-bottom: 2px;">➤ {{methodName[0]}}</h3>
-                                <h1 style="margin-bottom: 20px; margin-left:18px">{{transactionCount[0]}}</h1>
+                                <h3 style="margin-bottom: 2px;">➤ {{prodName[2]}} </h3>
+                                <h1 style="margin-bottom: 1px;margin-left:18px">{{prodCount[2]}}</h1>
                             </div>
-                            <div style="margin-left: 30px;">
-                                <h3 style="margin-bottom: 2px;">➤ {{methodName[1]}} </h3>
-                                <h1 style="margin-bottom: 1px;margin-left:18px">{{transactionCount[1]}}</h1>
-                            </div>
+
                         </div>
-                        
-                        <div class="row">
-                            <div style="margin-left: 10px;">
-                                <h3 style="margin-bottom: 2px;">➤ {{methodName[2]}} </h3>
-                                <h1 style="margin-bottom: 1px;margin-left:18px">{{transactionCount[2]}}</h1>
-                            </div>
-    
-                            <div style="margin-left: 30px;">
-                                <h3 style="margin-bottom: 2px;">➤ {{methodName[3]}} </h3>
-                                <h1 style="margin-bottom: 1px;margin-left:18px">{{transactionCount[3]}}</h1>
-                            </div>
+
+
+                        <div class="chart" style="width: 300px; height: 300px">
+                            <canvas id="product-chart"></canvas>
                         </div>
 
                     </div>
 
+                </mat-card-content>
+            </mat-card>
+        </div>
 
-                    <div style="width: 300px; height: 300px">
-                        <canvas id="transaction-chart"></canvas>
+        <div *ngIf="revenueShow">
+            <mat-card class="mat3-width">
+                <mat-card-content class="three-d-card">
+                    <div>
+                        <canvas id="curvRev-chart" style="width: 40rem; height: 18.7rem"></canvas>
                     </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
 
-                </div>
-
-            </mat-card-content>
-        </mat-card>
-    </div>
-
-    <div style="margin-right:30px" *ngIf="productShow">
-        <mat-card class="mat2-width">
-            <mat-card-content class="three-d-card">
-
-                <div class="row" style="margin-left: 30px;">
-
-                    <div style="margin-right: 10px;">
-
-                        <div style="margin-left: 15px; margin-top: 25px">
-                            <h2>Product Sales Statics</h2>
-                        </div>
-
-                        <div class="row">
-                            <div style="margin-left: 10px;">
-                                <h3 style="margin-bottom: 2px;">➤ {{prodName[0]}}</h3>
-                                <h1 style="margin-bottom: 20px; margin-left:18px">{{prodCount[0]}}</h1>
-                            </div>
-                            <div style="margin-left: 30px;">
-                                <h3 style="margin-bottom: 2px;">➤ {{prodName[1]}} </h3>
-                                <h1 style="margin-bottom: 1px;margin-left:18px">{{prodCount[1]}}</h1>
-                            </div>
-                        </div>
-                        <div style="margin-left: 10px;">
-                            <h3 style="margin-bottom: 2px;">➤ {{prodName[2]}} </h3>
-                            <h1 style="margin-bottom: 1px;margin-left:18px">{{prodCount[2]}}</h1>
-                        </div>
-
+        <div *ngIf="customerShow">
+            <mat-card class="mat3-width">
+                <mat-card-content class="three-d-card">
+                    <div>
+                        <canvas id="curvCus-chart" style="width: 40rem; height: 18.7rem"></canvas>
                     </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
 
-
-                    <div style="width: 300px; height: 300px">
-                        <canvas id="product-chart"></canvas>
+        <div *ngIf="transactionShow">
+            <mat-card class="mat3-width">
+                <mat-card-content class="three-d-card">
+                    <div>
+                        <canvas id="curvTran-chart" style="width: 40rem; height: 18.7rem"></canvas>
                     </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
 
-                </div>
-
-            </mat-card-content>
-        </mat-card>
-    </div>
-
-    <div *ngIf="revenueShow">
-        <mat-card class="mat3-width">
-            <mat-card-content class="three-d-card">
-                <div>
-                    <canvas id="curvRev-chart" style="width: 40rem; height: 18.7rem"></canvas>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-
-    <div *ngIf="customerShow">
-        <mat-card class="mat3-width">
-            <mat-card-content class="three-d-card">
-                <div>
-                    <canvas id="curvCus-chart" style="width: 40rem; height: 18.7rem"></canvas>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-
-    <div *ngIf="transactionShow">
-        <mat-card class="mat3-width">
-            <mat-card-content class="three-d-card">
-                <div>
-                    <canvas id="curvTran-chart" style="width: 40rem; height: 18.7rem"></canvas>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
-
-    <div *ngIf="productShow">
-        <mat-card class="mat3-width">
-            <mat-card-content class="three-d-card">
-                <div>
-                    <canvas id="curvProd-chart" style="width: 40rem; height: 18.7rem"></canvas>
-                </div>
-            </mat-card-content>
-        </mat-card>
+        <div *ngIf="productShow">
+            <mat-card class="mat3-width">
+                <mat-card-content class="three-d-card">
+                    <div>
+                        <canvas id="curvProd-chart" style="width: 40rem; height: 18.7rem"></canvas>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </div>
 </div>
