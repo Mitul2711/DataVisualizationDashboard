@@ -10,6 +10,8 @@ export class FormDetailsService {
 
   url: string = "http://localhost:200/details";
 
+  btn: boolean = true;
+
   postData(data: any) {
     return this.http.post(this.url,data);
   }

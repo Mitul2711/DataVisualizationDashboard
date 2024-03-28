@@ -1,17 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { FormDetailsService } from './services/form-details.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  
   title = 'DataVisualizationDashboard';
 
-  @Input() btn: any;
+  constructor(private formService: FormDetailsService) {}
 
-  onClose() {
-    this.btn = false;
+  ngOnInit(): void {
+
   }
+
+
 
 }

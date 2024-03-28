@@ -37,5 +37,24 @@ app-header {
     overflow: hidden;
   }
 
-}
+  :host {
+    grid-template-columns: 1fr;
+    /* Change to a single column layout */
+  }
 
+  app-side-nav {
+    display: none;
+    /* Hide the side nav */
+  }
+
+  // main {
+  //   grid-column: 1 / -1;
+  //   /* Span across all columns */
+  // }
+
+  // app-header {
+  //   grid-column: 1 / -1;
+  //   /* Span across all columns */
+  // }
+
+}
